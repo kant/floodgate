@@ -5,12 +5,12 @@ import java.util.UUID
 import akka.actor.ActorRef
 import akka.pattern.ask
 import akka.util.Timeout
-import com.gu.floodgate.{BulkReindexInProcess, ErrorResponse}
+import com.gu.floodgate.{ BulkReindexInProcess, ErrorResponse }
 import com.gu.floodgate.Formats._
-import com.gu.floodgate.jobhistory.{JobHistoriesResponse, JobHistoryService}
+import com.gu.floodgate.jobhistory.{ JobHistoriesResponse, JobHistoryService }
 import com.gu.floodgate.reindex.BulkJobActor._
-import com.gu.floodgate.reindex.{DateParameters, ReindexService}
-import com.gu.floodgate.runningjob.{RunningJobService, SingleRunningJobResponse}
+import com.gu.floodgate.reindex.{ DateParameters, ReindexService }
+import com.gu.floodgate.runningjob.{ RunningJobService, SingleRunningJobResponse }
 import play.api.libs.json._
 import play.api.mvc.Result
 import play.api.mvc.legacy.Controller
@@ -77,7 +77,6 @@ class ContentSourceApi(
     Future.successful(NoContent)
 
   }
-
 
   def reindex(id: String, environment: String, from: Option[String], to: Option[String]) = Action.async { implicit request =>
 
