@@ -126,6 +126,7 @@ class ContentSourceApi(
   }
 
   def checkIfInBulkMode = Action.async { implicit request =>
+    logger.info("Checking if bulk jobs active")
     val actorList = bulkJobActorsMap.values.toList
     val actorEnvs = bulkJobActorsMap.keys.toList
     val bulkJobsActorStatus = Future.sequence(actorList.map(actor => (actor ? IsActorReindexing).mapTo[BulkReindexRequestResult]))
